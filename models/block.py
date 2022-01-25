@@ -9,7 +9,7 @@ class Block:
         self.proof = proof
         self.timestamp = time() if timestamp is None else timestamp
 
-    def to_serializable_block(self):
-        serializable_block = self.__dict__.copy()
-        serializable_block['transactions'] = [tx.__dict__.copy() for tx in serializable_block['transactions']]
-        return serializable_block
+    def serialize_block(self):
+        block = self.__dict__.copy()
+        block['transactions'] = [tx.__dict__.copy() for tx in block['transactions']]
+        return block
